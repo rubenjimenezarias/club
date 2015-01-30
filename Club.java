@@ -65,4 +65,25 @@ public class Club
         return count;
     }
 
+    /** 
+    * Todos los socios que se han dado de alta un determinado mes de un determinado año se
+    * dan de baja. En caso de que el parametro month contenga un valor no valido se muestra 
+    * por pantalla el error.
+    * @param month El mes en el que estamos interesados
+    * @param year El año en el que estamos interesados
+    * @return Una coleccion con los socios que se han dado de baja del club
+    */
+    public ArrayList purge(int month, int year)
+    {
+       int count = 0;
+       while (count < memberships.size())
+       {
+           if (memberships.get(count).getMonth() == month && memberships.get(count).getYear() == year)
+           {
+                    memberships.remove(count);
+           }
+           count++;
+       }
+       return memberships;
+    }
 }
