@@ -76,13 +76,23 @@ public class Club
     public ArrayList purge(int month, int year)
     {
        int count = 0;
-       while (count < memberships.size())
+       if (month <= 12 && month >= 1)
        {
-           if (memberships.get(count).getMonth() == month && memberships.get(count).getYear() == year)
+           while (count < memberships.size())
            {
-                    memberships.remove(count);
+               if (memberships.get(count).getMonth() == month && memberships.get(count).getYear() == year)
+               {
+                        memberships.remove(count);
+               }
+               else
+               {
+                   count++;
+               }
            }
-           count++;
+       }
+       else 
+       {
+           System.out.println("Error!! el numero que has indicado no es un mes");
        }
        return memberships;
     }
